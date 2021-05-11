@@ -1,4 +1,3 @@
-from re import T
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import query
