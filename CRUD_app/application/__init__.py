@@ -1,6 +1,3 @@
-# import sys
-# sys.path.append('D:\QA\QA Training\Flask_Apps\CRUD_tutorial')
-
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
