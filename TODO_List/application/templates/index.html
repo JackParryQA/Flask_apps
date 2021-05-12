@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+<html>
+    <head>
+        <title>Todo List</title>
+    </head>
+    <body>
+        {% block body %}
+            {% for i in todos %}
+                {% if i.complete %}
+                    {{ i.id }}  ||  {{ i.task }}  ||  &#9989 <br>
+                {% else %}
+                    {{ i.id }}  ||  {{ i.task }}  ||  {{ i.complete }} <br>
+                {% endif %}
+            {% endfor %}
+        {% endblock body %}
+    </body>
+</html>

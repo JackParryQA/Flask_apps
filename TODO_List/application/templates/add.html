@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+<html>
+    <head>
+        <title>
+            Todo list - Add
+        </title>
+    </head>
+
+    <body>
+        {% block body %}
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <br>
+                {{ form.task.label }} {{ form.task }} 
+                <br><br>
+                {{ form.complete.label }}: {{ form.complete() }}
+                <br>
+                {{ form.submit }}
+            </form>
+        {% endblock body %}
+    </body>
+</html>

@@ -3,7 +3,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.fields.core import DateField, DecimalField, IntegerField, SelectField
 from wtforms.widgets.core import Option
-from wtforms.fields import DateField
 
 app = Flask(__name__)
 
@@ -13,7 +12,7 @@ class BasicForm(FlaskForm):
     first_name = StringField('First Name')
     last_name = StringField('Last Name')
     age = IntegerField('Age')
-    birthday = DateField('Birthday')
+    birthday = DateField('Birthday', format='%d-%m-%Y')
     nationality = SelectField('Nationality', choices=[('wales', 'Wales'), ('scotland', 'Scotland'), ('n-ireland', 'Northern Ireland'), ('england', 'England')])
     decimal = DecimalField('Enter decimal')
     submit = SubmitField('Add Name')
