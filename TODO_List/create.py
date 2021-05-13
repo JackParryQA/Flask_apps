@@ -1,4 +1,5 @@
-from app import db, TODO_list
+from application import db 
+from application.models import TODO_list
 
 db.drop_all()
 db.create_all()

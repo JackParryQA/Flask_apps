@@ -1,16 +1,35 @@
-{% extends 'layout.html' %}
+
 <html>
     <head>
         <title>Todo List</title>
     </head>
     <body>
+        {% extends 'layout.html' %}
         {% block body %}
+            <div>
+                <a href="{{ url_for('add') }}">Add</a>
+            </div>
+            <br><br>
             {% for i in todos %}
+                <div>
                 {% if i.complete %}
-                    {{ i.id }}  ||  {{ i.task }}  ||  &#9989 <br>
+                    {% set complete_link = url_for("uncomplete", num=i.id) %}
+                    {{ i.id }}  ||  {{ i.task }}  ||  &#9989 
+                    <form action= {{ complete_link }} style="display: inline-block;">
+                        <input type="submit" value="Not Complete" >
+                    </form>
                 {% else %}
-                    {{ i.id }}  ||  {{ i.task }}  ||  {{ i.complete }} <br>
+                    {% set complete_link = url_for("complete", num=i.id) %}
+                    {{ i.id }}  ||  {{ i.task }}  ||  &#10060
+                    <form action={{ complete_link }} style="display: inline-block;">
+                        <input type="submit" value="Complete" >
+                    </form>
                 {% endif %}
+                {% set del_link = url_for("delete", num=i.id) %}
+                <form action={{ del_link }} style="display: inline-block;">
+                    <input type="submit" value="Delete" >
+                </form>
+                </div>
             {% endfor %}
         {% endblock body %}
     </body>
