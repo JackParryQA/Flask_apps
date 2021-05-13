@@ -4,10 +4,6 @@ from application.models import TODO_list
 from application.forms import AddForm, UpdForm
 
 @app.route('/')
-def index():
-    return "THIS IS A TODO LIST"
-
-@app.route('/read')
 def Todos():
     all_todos=TODO_list.query.all()
     # todo=""
