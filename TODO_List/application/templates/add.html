@@ -9,9 +9,6 @@
     <body>
         {% extends 'layout.html' %}
         {% block body %}
-            <div>
-                <a href="{{ url_for('Todos') }}">Home</a>
-            </div>
             <form method="POST" action="">
                 {{ form.hidden_tag() }}
                 <br>

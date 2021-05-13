@@ -6,9 +6,6 @@
     <body>
         {% extends 'layout.html' %}
         {% block body %}
-            <div>
-                <a href="{{ url_for('add') }}">Add</a>
-            </div>
             <br><br>
             {% for i in todos %}
                 <div>

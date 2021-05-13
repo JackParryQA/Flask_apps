@@ -67,17 +67,20 @@ def delete(num):
 @app.route('/update/<int:num>', methods=['GET', 'POST'])
 def update(num):
     error=''
-    form = UpdForm()
+    form = AddForm()
 
-    todo = TODO_list.query.filter_by(id=num).first()
-    # form.task.data = todo.task
+    todo = TODO_list.query.get(num)
+    print(todo.id)
     if request.method == 'POST':
         task = form.task.data
-        if len(task)==0:
-            error-'Please enter valid task'
-        else:
+        if form.validate_on_submit():
+        #     error='Please enter valid task'
+        # else:
             todo.task=task
             db.session.commit()
             # return f"You've added a todo:<br>{new_todo.task}<br>{new_todo.complete}"
             return redirect(url_for('Todos'))
-    return render_template('update.html', form=form, message=error, task=todo)
+    elif request.method=='GET':
+        form.task.data=todo.task
+
+    return render_template('update.html', form=form)

@@ -6,7 +6,6 @@
         {% extends 'layout.html' %}
         {% block body %}
         <form method="POST" action="">
-            <h1>You are editing task: {{ task.task }}</h1>
             {{ form.hidden_tag() }}
             <br>
             {{ form.task.label }} {{ form.task}} 
