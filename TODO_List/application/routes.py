@@ -48,7 +48,7 @@ def complete(num):
     return redirect(url_for('Todos'))
 
 @app.route('/uncomplete/<int:num>')
-def uncomplete(num):
+def incomplete(num):
     todo = TODO_list.query.filter_by(id=num).first()
     todo.complete = False
     db.session.commit()

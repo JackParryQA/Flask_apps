@@ -13,10 +13,10 @@
             {% for i in todos %}
                 <div>
                 {% if i.complete %}
-                    {% set complete_link = url_for("uncomplete", num=i.id) %}
+                    {% set complete_link = url_for("incomplete", num=i.id) %}
                     {{ i.id }}  ||  {{ i.task }}  ||  &#9989 
                     <form action= {{ complete_link }} style="display: inline-block;">
-                        <input type="submit" value="Not Complete" >
+                        <input type="submit" value="InComplete" >
                     </form>
                 {% else %}
                     {% set complete_link = url_for("complete", num=i.id) %}
